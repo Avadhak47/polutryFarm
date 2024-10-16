@@ -1,3 +1,4 @@
+import 'package:farm_app/slots/slots.dart';
 import 'package:farm_app/vaccination/add_vac.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_app/home/bottom_nav.dart';
@@ -14,7 +15,7 @@ class RenderPage extends StatefulWidget {
 
 class _RenderPageState extends State<RenderPage> {
   int _selectedIndex = 0; // To track the selected index from BottomNav
-  bool showHome = false;   // The existing toggle condition
+  bool showHome = false; // The existing toggle condition
 
   // This method is for toggling between HomePage() and other pages
   void toggleView() {
@@ -34,21 +35,23 @@ class _RenderPageState extends State<RenderPage> {
   Widget _getSelectedPage() {
     // If `showHome` is true, display HomePage regardless of BottomNav selection
     if (showHome) {
-      return HomePage();  // Replace with your HomePage widget
+      return HomePage(); // Replace with your HomePage widget
     }
 
     // Otherwise, show the page based on the selected index
     switch (_selectedIndex) {
       case 0:
-        return PoultryDashboard(onSeeDetails: toggleView);  // Replace with your HomePage widget
+        return PoultryDashboard(
+            onSeeDetails: toggleView); // Replace with your HomePage widget
       case 1:
-        return  VaccinationScreen(); // Replace with your PoultryDashboard widget
+        return SlotsScreen(); // Replace with your PoultryDashboard widget
       case 2:
-        return HomePage();  // Replace with Form (Render4) widget
+        return HomePage(); // Replace with Form (Render4) widget
       case 3:
-        return HomePage();  // Replace with VetScreen widget
+        return HomePage(); // Replace with VetScreen widget
       default:
-        return PoultryDashboard(onSeeDetails: toggleView);  // Default page if none is selected
+        return PoultryDashboard(
+            onSeeDetails: toggleView); // Default page if none is selected
     }
   }
 
